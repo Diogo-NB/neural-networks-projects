@@ -39,7 +39,7 @@ public class PixelGrid extends JPanel {
         }
 
         add(grid);
-        JButton clearButton = new JButton("Clear");
+        JButton clearButton = new JButton("Limpar");
         clearButton.addActionListener(e -> {
             clearGrid();
         });

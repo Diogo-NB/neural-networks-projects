@@ -8,15 +8,12 @@ public class PerceptronModel implements ANNModel {
     private float[] weigths;
     // Bias
     private float bias;
-
+    // Taxa de aprendizado
     private float learningRate = 0.1f;
 
-    /**
-     * @param size size of the model
-     */
     public PerceptronModel(int size) {
         if (size < 0) {
-            throw new IllegalArgumentException("Invalid size!");
+            throw new IllegalArgumentException("Tamanho inválido!");
         }
 
         weigths = new float[size];
@@ -28,10 +25,6 @@ public class PerceptronModel implements ANNModel {
         bias = 0.0f;
     }
 
-    /**
-     * @param size         size of the model
-     * @param learningRate learning rate of the model
-     */
     public PerceptronModel(int size, float learningRate) {
         this(size);
         this.learningRate = learningRate;
@@ -39,7 +32,7 @@ public class PerceptronModel implements ANNModel {
 
     @Override
     public String toString() {
-        return "Perceptron Model";
+        return "Modelo Perceptron";
     }
 
     public float[] getWeigths() {
@@ -56,15 +49,15 @@ public class PerceptronModel implements ANNModel {
 
     public void train(int[] input, int target) {
         if (input.length != weigths.length) {
-            throw new IllegalArgumentException("Invalid size!");
+            throw new IllegalArgumentException("Tamanho inválido!");
         }
 
         float yLiq = test(input);
         int y = yLiq >= 0.0f ? 1 : -1;
-        int count = 0;
+        // int count = 0;
 
         while (y != target) {
-            count++;
+            // count++;
             for (int i = 0; i < input.length; i++) {
                 weigths[i] += learningRate * input[i] * target;
             }
@@ -75,7 +68,7 @@ public class PerceptronModel implements ANNModel {
             y = yLiq >= 0.0f ? 1 : -1;
         }
 
-        System.out.println("Iterations: " + count);
+        // System.out.println("Iterations: " + count);
         // System.out.println("Pesos: ");
         // for (int i = 0; i < weigths.length; i++) {
         // System.out.print(weigths[i] + " ");
@@ -86,7 +79,7 @@ public class PerceptronModel implements ANNModel {
 
     public void train(int[][] input, int[] target) {
         if (input.length != target.length || input[0].length != weigths.length) {
-            throw new IllegalArgumentException("Invalid size!");
+            throw new IllegalArgumentException("Tamanho inválido!");
         }
 
         for (int i = 0; i < input.length; i++) {

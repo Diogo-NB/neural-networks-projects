@@ -39,7 +39,7 @@ public class TestingFrame extends JFrame {
 
         JPanel gridsPanel = new JPanel();
         gridsPanel.setLayout(new GridLayout(1, 2, 10, 0));
-        testGrid = new PixelGrid("Test grid");
+        testGrid = new PixelGrid("Grid de teste");
         gridsPanel.add(testGrid);
 
         resultsPanel = new JPanel();
@@ -49,7 +49,7 @@ public class TestingFrame extends JFrame {
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         resultsPanel.setPreferredSize(new Dimension(120, 300));
         resultsPanel.setMinimumSize(new Dimension(120, 150));
-        resultsPanel.add(new JLabel("Results"));
+        resultsPanel.add(new JLabel("Resultados"));
 
         JButton testButton = new JButton("Test model");
         testButton.addActionListener(e -> {

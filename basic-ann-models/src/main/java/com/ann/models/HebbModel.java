@@ -7,9 +7,6 @@ public class HebbModel implements ANNModel {
     // Bias
     private float bias = 0.0f;
 
-    /**
-     * @param size size of the model
-     */
     public HebbModel(int size) {
         if (size < 0) {
             throw new IllegalArgumentException("Tamanho inválido!");
@@ -23,7 +20,7 @@ public class HebbModel implements ANNModel {
 
     @Override
     public String toString() {
-        return "Hebb Model";
+        return "Modelo de Hebb";
     }
 
     public float getBias() {
